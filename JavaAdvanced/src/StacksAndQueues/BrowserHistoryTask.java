@@ -9,6 +9,8 @@ public class BrowserHistoryTask {
 
         // X vs Y    -> O(?) x      compare      O(?) y
 
+        // N 2 ^ 32
+
         Scanner scanner = new Scanner(System.in);
 
         ArrayDeque<String> history = new ArrayDeque<>();
@@ -32,7 +34,6 @@ public class BrowserHistoryTask {
                 }
                 currentURL = nextNavigation;
             }
-
             System.out.println(currentURL);
             nextNavigation = scanner.nextLine();
         }
