@@ -34,4 +34,12 @@ public class Utils {
         }
     }
 
+    private static boolean isInBounds(int row, int col, int[][] matrix) {
+        return row >= 0 && row < matrix.length && col >= 0 && col < matrix[row].length;
+    }
+
+    private static boolean isOutOfBounds(int row, int col, int[][] matrix) {
+        return !isInBounds(row, col, matrix);
+    }
+
 }
