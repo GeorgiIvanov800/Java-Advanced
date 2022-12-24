@@ -7,8 +7,8 @@ public class CompareMatrices {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[][] firstMatrix = readMatrix(scanner);
-        int[][] secondMatrix = readMatrix(scanner);
+        int[][] firstMatrix = Utils.readMatrix(scanner);
+        int[][] secondMatrix = Utils.readMatrix(scanner);
         boolean areEqual = compareMatrices(firstMatrix,secondMatrix);
 
 //        if (Arrays.deepEquals(firstMatrix, secondMatrix)) {
@@ -19,7 +19,7 @@ public class CompareMatrices {
         System.out.println(output);
     }
 
-    private static boolean compareMatrices(int[][] firstMatrix, int[][] secondMatrix) {
+    public static boolean compareMatrices(int[][] firstMatrix, int[][] secondMatrix) {
 
         if (firstMatrix.length != secondMatrix.length) {
             return false;
@@ -43,34 +43,7 @@ public class CompareMatrices {
             }
 
         }
-
-
         return true;
     }
 
-    private static void printMatrix(int[][] matrix) {
-
-        for (int[] arr : matrix) {
-            for (int n: arr) {
-                System.out.print(n + " ");
-            }
-            System.out.println();
-        }
-    }
-    private static int[][] readMatrix(Scanner scanner) {
-        String[] dimensions = scanner.nextLine().split("\\+s");
-
-        int rows = Integer.parseInt(dimensions[0]);
-        int cols = Integer.parseInt(dimensions[1]);
-
-        int[][] matrix = new int[rows][cols];
-
-        for (int row = 0; row < rows; row++) {
-            int[] arr = Arrays.stream(scanner.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
-            matrix[row] = arr;
-        }
-        return matrix;
-    }
 }
