@@ -9,7 +9,7 @@ public class SoftUniParty {
         Scanner scanner = new Scanner(System.in);
 
         Set<String> VIP = new LinkedHashSet<>();
-        Set<String> regular = new LinkedHashSet<>();
+        Set<String> regular = new LinkedHashSet<>();  // it would be better if the task use TreeSet instead of two LinkedHashSets
 
         String reservationNumber = scanner.nextLine();
 
