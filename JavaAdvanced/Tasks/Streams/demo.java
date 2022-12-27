@@ -15,7 +15,8 @@ public class demo {
 
         FileInputStream inputStream = new FileInputStream(path);
 
-        Scanner scanner = new Scanner(inputStream);
+        /*Scanner scanner = new Scanner(inputStream);
+
         String line = scanner.nextLine();
 
         while (scanner.hasNextLine()) {
@@ -23,9 +24,15 @@ public class demo {
             line = scanner.nextLine();
 
         }
-        //System.out.println("Hello World!");
+        *///System.out.println("Hello World!");
 
-        // Write
+        int bytte = inputStream.read();
+
+        while (bytte != -1) {
+            System.out.print((char) bytte);
+            bytte = inputStream.read();
+        }
+
 
     }
 }
