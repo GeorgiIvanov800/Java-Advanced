@@ -12,7 +12,7 @@ public class demo {
 
         String path = "D:\\SoftUni Java Course\\JavaAdvancedMay2022\\Streams, Files and Directories" +
                 "\\04.Java-Advanced-Files-and-Streams-Lab-Resources" +
-                "\\input.txt1";
+                "\\input.txt";
 
         /*Scanner scanner = new Scanner(inputStream);
 
@@ -34,8 +34,20 @@ public class demo {
         try {
             FileInputStream inputStream = new FileInputStream(path);
             System.out.println("File was found it's ok");
+
+            int ontByte = inputStream.read();
+
+            while (ontByte != -1) {
+                System.out.print((char) ontByte);
+                ontByte = inputStream.read();
+            }
+
         } catch (FileNotFoundException e) {
             System.out.println("File not found " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Cannot read from file");
+        } finally {
+            //It runs regardless of whether we have passed  try or catch block
         }
 
     }
