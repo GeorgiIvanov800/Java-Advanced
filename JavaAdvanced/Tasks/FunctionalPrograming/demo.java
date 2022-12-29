@@ -23,8 +23,17 @@ public class demo {
 //            System.out.println(getPowerOf(arr[i], pow));
 //        }
         // make the same thing without using for loop
-        Arrays.stream(arr)
-                .forEach(n -> System.out.println(getPowerOf(n, pow)));
+//        Arrays.stream(arr)
+//                .forEach(n -> System.out.println(getPowerOf(n, pow)));
+
+//        Arrays.stream(arr).mapToDouble(n -> getPowerOf(n , pow))
+//                .forEach(System.out:: println);
+
+        Arrays.stream(arr)       // use Lambda instead of using methods
+                .mapToDouble((n) -> {
+                    return Math.pow(n, pow);
+                })
+                .forEach(System.out::println);
     }
 
     public static double getPowerOf(int x, int pow) {
