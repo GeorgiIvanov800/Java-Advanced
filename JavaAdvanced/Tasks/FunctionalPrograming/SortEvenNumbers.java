@@ -24,5 +24,10 @@ public class SortEvenNumbers {
                 .collect(Collectors.joining(", "));
 
         System.out.println(output);
+
+        System.out.println(numbers.stream()
+                .sorted()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", ")));
     }
 }
