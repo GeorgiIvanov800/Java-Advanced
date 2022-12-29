@@ -1,5 +1,4 @@
 package FunctionalPrograming;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -57,7 +56,8 @@ public class FilterByAge {
                 return p -> System.out.println(p.age);
             case "name age":
                 return p -> System.out.println(p.name + " - " + p.age);
-            default: throw new IllegalArgumentException("Unknown format " + outputFormat);
+            default:
+                throw new IllegalArgumentException("Unknown format " + outputFormat);
         }
     }
 
@@ -67,7 +67,8 @@ public class FilterByAge {
                 return p -> p.age <= ageFilter;
             case "older":
                 return p -> p.age >= ageFilter;
-            default: throw new IllegalArgumentException("Invalid parameters for age predicate, " + ageCondition + " " + ageFilter);
+            default:
+                throw new IllegalArgumentException("Invalid parameters for age predicate, " + ageCondition + " " + ageFilter);
         }
     }
 
@@ -76,7 +77,5 @@ public class FilterByAge {
         return people.stream()
                 .filter(predicate)
                 .collect(Collectors.toList());
-
-
     }
 }
