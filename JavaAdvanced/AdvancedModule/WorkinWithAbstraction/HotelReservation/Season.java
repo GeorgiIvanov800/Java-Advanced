@@ -9,13 +9,16 @@ public enum Season {
     private int multiplier;
 
     Season(int multiplier) {
+
         this.multiplier = multiplier;
     }
+
     public int getMultiplier() {
+
         return multiplier;
     }
 
-    public Season parse(String str) {
-        
+    public static Season parse(String str) {
+            return Season.valueOf(str.toUpperCase());
     }
 }

@@ -8,10 +8,25 @@ public enum Discount {
     private double priceReductionFactor;
 
     Discount(double priceReductionFactor) {
+
         this.priceReductionFactor = priceReductionFactor;
     }
 
     public double getPriceReductionFactor() {
+
         return priceReductionFactor;
+    }
+
+    public static Discount parse(String token) {
+        switch (token) {
+            case "VIP":
+                return VIP;
+            case "SecondVisit":
+                return SECOND_VISIT;
+            case "None":
+                return NONE;
+            default:
+                throw new IllegalArgumentException("Unknown enum value" + token);
+        }
     }
 }

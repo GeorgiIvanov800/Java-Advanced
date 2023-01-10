@@ -42,7 +42,7 @@ public class FilterByAge {
         int ageFilter = Integer.parseInt(scanner.nextLine());
         String outputFormat = scanner.nextLine();
 
-        people = filterByAgeCondition(people, ageCondition.equals("younger") ? (p -> p.age <= ageFilter : p -> p.age >= ageFilter);
+        people = filterByAgeCondition(people, ageCondition.equals("younger") ? (p -> p.age <= ageFilter) : p -> p.age >= ageFilter);
         people = filterByAgeCondition(people, getPredicate(ageCondition, ageFilter));
         Consumer<Person> printer = getPrinter(outputFormat);
         people.forEach(printer);
