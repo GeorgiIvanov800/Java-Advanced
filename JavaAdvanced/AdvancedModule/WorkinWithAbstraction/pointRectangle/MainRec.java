@@ -1,9 +1,12 @@
-package pointRectangle;
+package WorkinWithAbstraction.pointRectangle;
+
+import WorkinWithAbstraction.pointRectangle.Point;
+import WorkinWithAbstraction.pointRectangle.Rectangle;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class MainRec {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -28,6 +31,7 @@ public class Main {
             boolean isInside = rect.contains(x);
             System.out.println(isInside);
         }
+
     }
 
     private static int[] getCoordinate(Scanner scanner) {

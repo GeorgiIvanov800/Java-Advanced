@@ -1,4 +1,6 @@
-package pointRectangle;
+package WorkinWithAbstraction.pointRectangle;
+
+import WorkinWithAbstraction.pointRectangle.Point;
 
 public class Rectangle {
     private Point A;

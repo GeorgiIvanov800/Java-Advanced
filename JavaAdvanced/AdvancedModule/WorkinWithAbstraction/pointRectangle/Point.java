@@ -1,4 +1,4 @@
-package pointRectangle;
+package WorkinWithAbstraction.pointRectangle;
 public class Point {
     private int x;
     private int y;
