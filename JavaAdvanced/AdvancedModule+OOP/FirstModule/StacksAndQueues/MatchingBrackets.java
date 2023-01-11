@@ -17,7 +17,7 @@ public class MatchingBrackets {
                 openIndexes.push(i);
             } else if (currentSymbol == ')') {
                 int lastOpenIndex = openIndexes.pop();
-                String matching = expression.substring(lastOpenIndex,i + 1);
+                String matching = expression.substring(lastOpenIndex, i + 1);
                 System.out.println(matching);
             }
 
