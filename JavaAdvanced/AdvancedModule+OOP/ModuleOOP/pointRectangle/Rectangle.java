@@ -1,4 +1,4 @@
-package ModuleOOP.pointRectangle;
+package ModuleOOP.WorkinWithAbstraction.pointRectangle;
 
 public class Rectangle {
     private Point A;
