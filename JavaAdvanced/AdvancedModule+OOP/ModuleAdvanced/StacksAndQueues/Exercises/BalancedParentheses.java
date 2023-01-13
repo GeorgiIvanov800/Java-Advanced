@@ -12,6 +12,7 @@ public class BalancedParentheses {
         ArrayDeque<Character> openingBrackets = new ArrayDeque<>();
         for (int i = 0; i < brackets.length(); i++) {
             char currentBracket = brackets.charAt(i);
+
             if (currentBracket == '{' || currentBracket == '(' || currentBracket == '[') {
                 openingBrackets.push(currentBracket);
             } else {
