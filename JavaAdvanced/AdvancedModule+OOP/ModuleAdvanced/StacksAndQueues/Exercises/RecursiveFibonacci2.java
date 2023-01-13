@@ -24,6 +24,4 @@ public class RecursiveFibonacci2 {
         System.out.println(stack.pop());
 
     }
-
-
 }
