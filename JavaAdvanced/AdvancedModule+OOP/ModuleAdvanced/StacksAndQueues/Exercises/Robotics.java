@@ -30,7 +30,7 @@ public class Robotics {
             // check which robot is free -> working time = 0;
             for (var robot : robotsWorkingTime.entrySet()) {
                 if (robot.getValue() == 0) { // this robot is free -> so the robot started to work on the product
-                    System.out.println(robot.getKey() + " - " + currentProduct + "[" + getStartTime(startTimeInSecond) + "]");
+                    System.out.println(robot.getKey() + " - " + currentProduct + " [" + getStartTime(startTimeInSecond) + "]");
                     robotsWorkingTime.put(robot.getKey(), robots.get(robot.getKey()));
                     isTaken = true;
                     break;
