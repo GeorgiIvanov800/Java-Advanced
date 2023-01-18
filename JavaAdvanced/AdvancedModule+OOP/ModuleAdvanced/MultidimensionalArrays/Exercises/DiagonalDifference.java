@@ -1,6 +1,5 @@
 package ModuleAdvanced.MultidimensionalArrays.Exercises;
 
-import java.util.Map;
 import java.util.Scanner;
 
 public class DiagonalDifference {
