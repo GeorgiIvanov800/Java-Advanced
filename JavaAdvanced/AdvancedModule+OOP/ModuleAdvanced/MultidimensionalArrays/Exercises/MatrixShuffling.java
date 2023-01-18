@@ -42,7 +42,7 @@ public class MatrixShuffling {
 
     }
 
-    private static void fillMatrix(String[][] matrix, Scanner scanner) {
+    public static void fillMatrix(String[][] matrix, Scanner scanner) {
         for (int row = 0; row < matrix.length; row++) {
             //scanner.nextLine() -> "1 2 3"
             //scanner.nextLine().split(" ") -> ["1", "2", "3"]
