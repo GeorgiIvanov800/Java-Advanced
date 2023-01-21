@@ -33,7 +33,7 @@ public class CitiesByContinentAndCountry {
                     System.out.println(continent + ":");
 
                     countryWithCitites.entrySet().forEach(countryEntry -> {
-                        System.out.println("  " + countryEntry.getKey() + "-> " + String.join(", ",countryEntry.getValue()));
+                        System.out.println("  " + countryEntry.getKey() + " -> " + String.join(", ",countryEntry.getValue()));
                     });
 
                 });
