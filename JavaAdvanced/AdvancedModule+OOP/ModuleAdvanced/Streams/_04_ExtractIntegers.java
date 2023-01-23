@@ -12,8 +12,14 @@ public class _04_ExtractIntegers {
 
         Scanner reader = new Scanner(new FileInputStream(inputPath));
 
-        String line = reader.nextLine();
-        
-        System.out.println(line);
+        while (reader.hasNext()) {
+
+            if (reader.hasNextInt()) {
+                System.out.println(reader.nextInt());
+            }
+            reader.next();
+        }
+
+
     }
 }
