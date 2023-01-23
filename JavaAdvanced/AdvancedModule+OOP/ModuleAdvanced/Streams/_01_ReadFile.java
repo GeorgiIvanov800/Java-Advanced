@@ -11,9 +11,14 @@ public class _01_ReadFile {
         String filePath = "C:\\Users\\bott-800\\Documents\\GitHub\\JavaSoftUniCourse\\JavaAdvanced\\AdvancedModule+OOP\\ModuleAdvanced\\Streams\\Files\\input.txt";
 
         try (InputStream inputStream = new FileInputStream(filePath)) {
-            int firstByte = inputStream.read();
-            System.out.println(firstByte);
-            System.out.println((char) firstByte);
+            int readByte = inputStream.read();
+            while (readByte >= 0) {
+                System.out.print(Integer.toBinaryString(readByte) + " ");
+                //System.out.println(readByte);
+                //System.out.println((char) readByte);
+            }
+
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
