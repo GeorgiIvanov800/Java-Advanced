@@ -36,7 +36,7 @@ public class CrossFire {
 
                 }
             }
-
+            matrix.removeIf(List::isEmpty);
             command = scanner.nextLine();
         }
         printMatrix(matrix);
