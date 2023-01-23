@@ -2,6 +2,8 @@ package ModuleAdvanced.Streams;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class _04_ExtractIntegers {
@@ -11,11 +13,12 @@ public class _04_ExtractIntegers {
         String outputPath = basePath + "\\04_ExtractIntegers_output.txt";
 
         Scanner reader = new Scanner(new FileInputStream(inputPath));
+        PrintStream writer = new PrintStream(new FileOutputStream(outputPath));
 
         while (reader.hasNext()) {
 
             if (reader.hasNextInt()) {
-                System.out.println(reader.nextInt());
+                writer.println(reader.nextInt());
             }
             reader.next();
         }
