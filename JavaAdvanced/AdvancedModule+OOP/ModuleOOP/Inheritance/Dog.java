@@ -1,4 +1,4 @@
-package ModuleOOP.Inheratance;
+package ModuleOOP.Inheritance;
 
 public class Dog  extends Animal{
 

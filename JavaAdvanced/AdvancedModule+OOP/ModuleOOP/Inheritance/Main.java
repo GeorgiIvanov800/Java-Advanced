@@ -1,4 +1,4 @@
-package ModuleOOP.Inheratance;
+package ModuleOOP.Inheritance;
 
 public class Main {
     public static void main(String[] args) {
