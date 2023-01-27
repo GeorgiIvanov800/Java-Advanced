@@ -12,5 +12,13 @@ public class _01_ConsumerPrint {
         String[] input = scanner.nextLine().split("\\s+");
         Consumer<String> printNames = name -> System.out.println(name);
         Arrays.stream(input).forEach(printNames);
+
+/*
+        Consumer<String[]> printArray = array -> {
+            for (String name : array) {
+                System.out.println(name);
+            }
+        };
+*/
     }
 }
