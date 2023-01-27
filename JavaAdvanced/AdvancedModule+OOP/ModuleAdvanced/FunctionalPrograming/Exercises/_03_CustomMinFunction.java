@@ -21,5 +21,9 @@ public class _03_CustomMinFunction {
         // using a Consumer
         Consumer<List<Integer>> printMinNum = list -> System.out.println(Collections.min(list));
         printMinNum.accept(numbersInput);
+
+        //using a Function
+        Function<List<Integer>, Integer> getMinNumber = list -> Collections.min(list);
+        System.out.println(getMinNumber.apply(numbersInput));
     }
 }
