@@ -13,5 +13,7 @@ public class Engine {
         this.efficiency = efficiency;
     }
 
-
+    public String getModel(){
+        return model;
+    }
 }
