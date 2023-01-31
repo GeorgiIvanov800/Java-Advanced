@@ -16,4 +16,15 @@ public class Engine {
     public String getModel(){
         return model;
     }
+    public int getPower() {
+        return power;
+    }
+
+    public int getDisplacement() {
+        return displacement;
+    }
+
+    public String getEfficiency() {
+        return efficiency;
+    }
 }

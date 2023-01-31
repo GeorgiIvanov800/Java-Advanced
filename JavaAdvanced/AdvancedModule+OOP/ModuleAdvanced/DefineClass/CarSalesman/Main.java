@@ -69,7 +69,7 @@ public class Main {
                 }
             }
             Car car = new Car(carModel, carEngine, weight, color);
-            System.out.println(car);
+            System.out.print(car.toString());
         }
     }
 }
