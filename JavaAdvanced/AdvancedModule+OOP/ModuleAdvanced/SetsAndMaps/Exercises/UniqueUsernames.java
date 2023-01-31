@@ -19,8 +19,8 @@ public class UniqueUsernames {
         for (String userName : set) {
             System.out.println(userName);
         }
-        System.out.println("------------------");
-
-        set.forEach(e -> System.out.println(e));
+//        System.out.println("------------------");
+//
+//        set.forEach(e -> System.out.println(e));
     }
 }

@@ -27,8 +27,9 @@ public class UserLogs {
             }
             input = scanner.nextLine();
         }
+
         for (var attacker : usersMap.entrySet()) {
-            System.out.printf("%s:%n", attacker.getKey());
+            System.out.printf("%s: %n", attacker.getKey());
             LinkedHashMap<String, Integer> attacks = attacker.getValue();
             StringBuilder sb = new StringBuilder();
 
