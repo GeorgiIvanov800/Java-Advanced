@@ -1,7 +1,6 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
 public class CustomArray {
-    //bool contains(int element) - Checks if the list contains the given element returns (True or False)
     //void add(int firstIndex, int secondIndex) - Adds element at the specific index, the element at this index gets shifted to the right alongside any following elements, increasing the size
     //void forEach(Consumer<Integer> consumer) - Goes through each one of the elements in the list
 
@@ -43,6 +42,41 @@ public class CustomArray {
         shiftLeft(index);
 
         return element;
+    }
+
+    //bool contains(int element) - Checks if the list contains the given element returns (True or False)
+    public boolean contain(int element) {
+        for (int i = 0; i < this.size; i++) {
+            if (this.data[i] == element) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /*
+    void insert(int firstIndex, int secondIndex)
+    Adds element at the specific index,
+    the element at this index gets shifted to the right alongside any following elements, increasing the size
+    */
+    public void insert(int index, int element) {
+        checkIndex(index);
+        if (index == this.size - 1) {
+            add(this.data[this.size - 1]);
+            this.data[this.size - 2] = element;
+        } else {
+            if (this.size == this.capacity) {
+                resize();
+            }
+            shiftRight();
+            this.size++;
+            this.data[index] = element;
+        }
+    }
+
+    private void shiftRight() {
+        
     }
 
     private void shiftLeft(int index) {
