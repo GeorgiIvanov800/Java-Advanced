@@ -12,5 +12,11 @@ public class CustomArray {
     private int[] data;
     private int size;
     private int capacity;
-    
+
+
+    public CustomArray() {
+        this.data = new int[INITIAL_CAPACITY];
+        this.size = 0;
+        this.capacity = INITIAL_CAPACITY;
+    }
 }
