@@ -10,6 +10,6 @@ public class Main {
         customArray.add(5);
         customArray.add(100);
 
-        System.out.println();
+        System.out.println(customArray.get(23));
     }
 }
