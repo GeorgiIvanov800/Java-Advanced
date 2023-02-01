@@ -69,14 +69,16 @@ public class CustomArray {
             if (this.size == this.capacity) {
                 resize();
             }
-            shiftRight();
+            shiftRight(index);
             this.size++;
             this.data[index] = element;
         }
     }
 
-    private void shiftRight() {
-        
+    private void shiftRight(int index) {
+        for (int i = this.size; i > index; i--) {
+            this.data[i] = this.data[i - 1];
+        }
     }
 
     private void shiftLeft(int index) {
