@@ -42,15 +42,15 @@ public class CustomArray {
         this.data[index] = 0;
         shiftLeft(index);
 
-
         return element;
     }
 
     private void shiftLeft(int index) {
         for (int i = index; i < this.size - 1; i++) {
-            this.data[data[i]] = this.data[i + 1];
+            this.data[i] = this.data[i + 1];
         }
         this.data[this.size - 1] = 0;
+        this.size--;
     }
 
     private void checkIndex(int index) {
