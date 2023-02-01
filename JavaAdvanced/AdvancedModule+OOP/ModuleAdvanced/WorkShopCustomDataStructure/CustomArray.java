@@ -1,9 +1,6 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
 public class CustomArray {
-
-
-    //int remove(int index) - Removes the element at the given index
     //bool contains(int element) - Checks if the list contains the given element returns (True or False)
     //void add(int firstIndex, int secondIndex) - Adds element at the specific index, the element at this index gets shifted to the right alongside any following elements, increasing the size
     //void forEach(Consumer<Integer> consumer) - Goes through each one of the elements in the list
@@ -36,10 +33,30 @@ public class CustomArray {
         return this.data[index];
     }
 
+
+    //int remove(int index) - Removes the element at the given index
+    public int remove(int index) {
+        checkIndex(index);
+        int element = this.data[index];
+
+        this.data[index] = 0;
+        shiftLeft(index);
+
+
+        return element;
+    }
+
+    private void shiftLeft(int index) {
+        for (int i = index; i < this.size - 1; i++) {
+            this.data[data[i]] = this.data[i + 1];
+        }
+        this.data[this.size - 1] = 0;
+    }
+
     private void checkIndex(int index) {
         if (index < 0 || index >= this.size) {
             throw new ArrayIndexOutOfBoundsException
-            (String.format("HEY HEY CAREFUL MATE Index %d is out of bounds with length %d WHAT THE HELL ARE YOU DOING", index, this.size));
+            (String.format("HEY HEY CAREFUL MATE Index %d is out of bounds with length %d WHAT THE HELL ARE YOU THINKING", index, this.size));
         }
     }
 
