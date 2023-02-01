@@ -13,7 +13,7 @@ public class Main {
         System.out.println();
         customArray.insert(3, 100);
 
-
+        customArray.forEach(el -> System.out.print(el + " "));
         System.out.println();
     }
 }

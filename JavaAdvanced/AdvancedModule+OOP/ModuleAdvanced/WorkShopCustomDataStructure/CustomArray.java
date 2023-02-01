@@ -1,9 +1,8 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
-public class CustomArray {
-    //void add(int firstIndex, int secondIndex) - Adds element at the specific index, the element at this index gets shifted to the right alongside any following elements, increasing the size
-    //void forEach(Consumer<Integer> consumer) - Goes through each one of the elements in the list
+import java.util.function.Consumer;
 
+public class CustomArray {
     private static final int INITIAL_CAPACITY = 4;
     private int[] data;
     private int size;
@@ -72,6 +71,13 @@ public class CustomArray {
             shiftRight(index);
             this.size++;
             this.data[index] = element;
+        }
+    }
+
+    //void forEach(Consumer<Integer> consumer) - Goes through each one of the elements in the list
+    public void forEach(Consumer<Integer> consumer) {
+        for (int i = 0; i < this.size; i++) {
+            consumer.accept(this.data[i]);
         }
     }
 
