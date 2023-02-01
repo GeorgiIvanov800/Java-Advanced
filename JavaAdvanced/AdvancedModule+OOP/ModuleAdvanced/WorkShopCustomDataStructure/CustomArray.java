@@ -51,6 +51,19 @@ public class CustomArray {
         }
         this.data[this.size - 1] = 0;
         this.size--;
+        if (this.size <= this.capacity / 4) {
+            shrink();
+        }
+    }
+
+    private void shrink() {
+        this.capacity /= 2;
+        int[] copyArr = new int[this.capacity];
+
+        for (int i = 0; i < this.size; i++) {
+            copyArr[i] = this.data[i];
+        }
+        this.data = copyArr;
     }
 
     private void checkIndex(int index) {

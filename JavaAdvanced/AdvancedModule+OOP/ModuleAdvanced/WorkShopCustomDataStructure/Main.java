@@ -10,10 +10,12 @@ public class Main {
         customArray.add(1);
         customArray.add(100);
 
-        System.out.println(customArray.get(2));
+        System.out.println();
+        customArray.remove(0);
+        customArray.remove(0);
+        customArray.remove(0);
+        customArray.remove(0);
 
-        customArray.remove(2);
-        System.out.println(customArray);
         System.out.println();
     }
 }
