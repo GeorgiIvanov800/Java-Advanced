@@ -2,18 +2,16 @@ package ModuleAdvanced.WorkShopCustomDataStructure;
 
 public class Main {
     public static void main(String[] args) {
-        CustomArray customArray = new CustomArray();
+        CustomStack stack = new CustomStack();
 
-        customArray.add(5);
-        customArray.add(8);
-        customArray.add(3);
-        customArray.add(1);
+        stack.push(2);
+        stack.push(4);
+        stack.push(66);
+        stack.push(23);
+        stack.push(99);
+
+        stack.forEach(ele -> System.out.print(ele + " "));
 
 
-        System.out.println();
-        customArray.insert(3, 100);
-
-        customArray.forEach(el -> System.out.print(el + " "));
-        System.out.println();
     }
 }

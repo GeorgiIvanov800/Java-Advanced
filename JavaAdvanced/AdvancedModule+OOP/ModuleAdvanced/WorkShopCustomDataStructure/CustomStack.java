@@ -1,6 +1,7 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 public class CustomStack {
     private static final int INITIAL_CAPACITY = 4;
@@ -14,14 +15,15 @@ public class CustomStack {
     }
 
 
-public void push(int element) {
-    if (this.size == this.capacity) {
-        resize();
+    public void push(int element) {
+        if (this.size == this.capacity) {
+            resize();
+        }
+        this.data[this.size] = element;
+        this.size++;
     }
-    this.data[this.size] = element;
-    this.size++;
-}
-public int pop() {
+
+    public int pop() {
         if (this.size == 0) {
             throw new NoSuchElementException("Not going to happen there is no elements in the Stack");
         }
@@ -34,8 +36,17 @@ public int pop() {
         }
 
         return element;
-}
+    }
 
+    public void forEach(Consumer<Integer> consumer) {
+        for (int i = 0; i < this.size; i++) {
+            consumer.accept(this.data[i]);
+        }
+    }
+
+    public int peek() {
+        return this.data[this.size - 1];
+    }
 
     private void resize() {
         this.capacity *= 2;
