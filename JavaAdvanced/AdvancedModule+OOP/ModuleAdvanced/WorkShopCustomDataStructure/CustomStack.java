@@ -24,9 +24,7 @@ public class CustomStack {
     }
 
     public int pop() {
-        if (this.size == 0) {
-            throw new NoSuchElementException("Not going to happen there is no elements in the Stack");
-        }
+        checkEmpty();
         int element = this.data[this.size - 1];
         this.data[this.size - 1] = 0;
         this.size--;
@@ -38,13 +36,21 @@ public class CustomStack {
         return element;
     }
 
+    private void checkEmpty() {
+        if (this.size == 0) {
+            throw new NoSuchElementException("Not going to happen there is no elements in the Stack");
+        }
+    }
+
     public void forEach(Consumer<Integer> consumer) {
+        checkEmpty();
         for (int i = 0; i < this.size; i++) {
             consumer.accept(this.data[i]);
         }
     }
 
     public int peek() {
+        checkEmpty();
         return this.data[this.size - 1];
     }
 
