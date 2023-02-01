@@ -8,7 +8,7 @@ public class CustomArray {
     //void add(int firstIndex, int secondIndex) - Adds element at the specific index, the element at this index gets shifted to the right alongside any following elements, increasing the size
     //void forEach(Consumer<Integer> consumer) - Goes through each one of the elements in the list
 
-    private static final int INITIAL_CAPACITY = 10;
+    private static final int INITIAL_CAPACITY = 4;
     private int[] data;
     private int size;
     private int capacity;
@@ -21,9 +21,13 @@ public class CustomArray {
 
     //void add(int element) - Adds the given element to the end of the list
     public void add(int element) {
-        //check if there are capacity if not increase it to make room for the new element.
-        resize();
-        this.data[this.size]
+        //increase the capacity if needed.
+        if (this.size == this.capacity) {
+            resize();
+        }
+
+        this.data[this.size] = element;
+        this.size++;
     }
 
 
