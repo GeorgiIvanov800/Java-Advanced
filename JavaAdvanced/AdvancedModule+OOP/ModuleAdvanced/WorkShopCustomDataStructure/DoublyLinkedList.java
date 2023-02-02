@@ -53,14 +53,23 @@ public class DoublyLinkedList {
 
     public int get(int index) {
         validteIndex(index);
-        ListNode currentNode = this.head;
 
-        for (int i = 0; i < index; i++) {
-            currentNode = currentNode.next;
+
+        if (index <= this.size / 2 ) {
+            ListNode currentNode = this.head;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode.next;
+            }
+            return currentNode.element;
+        } else {
+            ListNode currentNode = this.tail;
+            for (int i = this.size - 1; i > index ; i--) {
+                currentNode = currentNode.prev;
+            }
+            return currentNode.element;
         }
-        return currentNode.element;
     }
-    
+
 
     private void validteIndex(int index) {
         if (index < 0 || index >= this.size) {
