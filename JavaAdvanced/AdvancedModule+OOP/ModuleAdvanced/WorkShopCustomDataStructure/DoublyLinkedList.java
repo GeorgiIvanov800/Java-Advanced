@@ -50,5 +50,17 @@ public class DoublyLinkedList {
         }
         this.size++;
     }
+
+    public int get(int index) {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException("What the hell are you thinking index is out of BOUNDS!");
+        }
+        ListNode currentNode = this.head;
+
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode.element;
+    }
 }
 
