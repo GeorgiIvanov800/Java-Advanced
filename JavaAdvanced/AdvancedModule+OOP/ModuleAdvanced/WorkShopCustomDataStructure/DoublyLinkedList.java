@@ -1,12 +1,12 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 public class DoublyLinkedList {
 
 
 
-//int removeLast() – removes the element at the end of the collection
 //void forEach() – goes through the collection and executes a given action
 //int[] toArray() – returns the collection as an array
 static class ListNode {
@@ -104,6 +104,15 @@ static class ListNode {
 
     this.size--;
     return element;
+    }
+
+//void forEach() – goes through the collection and executes a given action
+    public void forEach(Consumer<Integer> consumer) {
+        ListNode currentNode = this.head;
+        while (currentNode != null) {
+            currentNode = currentNode.next;
+            consumer.accept(currentNode.element);
+        }
     }
 
     private void validateIndex(int index) {
