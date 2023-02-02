@@ -25,7 +25,16 @@ public class DoublyLinkedList {
 
     // void addFirst(int element) – adds an element at the beginning of the collection
     public void addFirst(int element) {
+            ListNode newNode = new ListNode(element);
 
+            if (this.size == 0) {
+                this.head = this.tail = newNode;
+            } else {
+                newNode.next = this.head;
+                this.head.prev = newNode;
+                this.head = newNode;
+            }
+            this.size++;
     }
 }
 
