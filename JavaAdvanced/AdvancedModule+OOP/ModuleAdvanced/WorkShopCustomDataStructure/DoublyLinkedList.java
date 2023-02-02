@@ -3,7 +3,7 @@ package ModuleAdvanced.WorkShopCustomDataStructure;
 public class DoublyLinkedList {
 
 
-//int get(int index) - Returns the element at the specified position in this list
+    //int get(int index) - Returns the element at the specified position in this list
 //int removeFirst() – removes the element at the beginning of the collection
 //int removeLast() – removes the element at the end of the collection
 //void forEach() – goes through the collection and executes a given action
@@ -25,16 +25,16 @@ public class DoublyLinkedList {
 
     // void addFirst(int element) – adds an element at the beginning of the collection
     public void addFirst(int element) {
-            ListNode newNode = new ListNode(element);
+        ListNode newNode = new ListNode(element);
 
-            if (this.size == 0) {
-                this.head = this.tail = newNode;
-            } else {
-                newNode.next = this.head;
-                this.head.prev = newNode;
-                this.head = newNode;
-            }
-            this.size++;
+        if (this.size == 0) {
+            this.head = this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+        this.size++;
     }
 
     //void addLast(int element) – adds an element at the end of the collection
@@ -52,15 +52,20 @@ public class DoublyLinkedList {
     }
 
     public int get(int index) {
-        if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("What the hell are you thinking index is out of BOUNDS!");
-        }
+        validteIndex(index);
         ListNode currentNode = this.head;
 
         for (int i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
         return currentNode.element;
+    }
+    
+
+    private void validteIndex(int index) {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException("What the hell are you thinking index is out of BOUNDS!");
+        }
     }
 }
 
