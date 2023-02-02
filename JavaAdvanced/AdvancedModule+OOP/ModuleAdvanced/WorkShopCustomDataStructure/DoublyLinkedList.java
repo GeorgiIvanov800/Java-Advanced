@@ -1,8 +1,8 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
 public class DoublyLinkedList {
-    // void addFirst(int element) – adds an element at the beginning of the collection
-//void addLast(int element) – adds an element at the end of the collection
+
+
 //int get(int index) - Returns the element at the specified position in this list
 //int removeFirst() – removes the element at the beginning of the collection
 //int removeLast() – removes the element at the end of the collection
@@ -35,6 +35,20 @@ public class DoublyLinkedList {
                 this.head = newNode;
             }
             this.size++;
+    }
+
+    //void addLast(int element) – adds an element at the end of the collection
+    public void addLast(int element) {
+        ListNode newNode = new ListNode(element);
+
+        if (this.size == 0) {
+            this.head = this.tail = newNode;
+        } else {
+            newNode.prev = this.tail;
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.size++;
     }
 }
 
