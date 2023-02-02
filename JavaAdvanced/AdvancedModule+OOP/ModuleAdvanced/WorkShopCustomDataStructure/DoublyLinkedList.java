@@ -1,10 +1,11 @@
 package ModuleAdvanced.WorkShopCustomDataStructure;
 
+import java.util.NoSuchElementException;
+
 public class DoublyLinkedList {
 
 
-    //int get(int index) - Returns the element at the specified position in this list
-//int removeFirst() – removes the element at the beginning of the collection
+
 //int removeLast() – removes the element at the end of the collection
 //void forEach() – goes through the collection and executes a given action
 //int[] toArray() – returns the collection as an array
@@ -51,8 +52,10 @@ public class DoublyLinkedList {
         this.size++;
     }
 
+
+    //int get(int index) - Returns the element at the specified position in this list
     public int get(int index) {
-        validteIndex(index);
+        validateIndex(index);
 
 
         if (index <= this.size / 2 ) {
@@ -71,9 +74,28 @@ public class DoublyLinkedList {
     }
 
 
-    private void validteIndex(int index) {
+//int removeFirst() – removes the element at the beginning of the collection
+    public int removeFirst() {
+        checkEmpty();
+        int fistElement = this.head.element;
+        this.head = this.head.next;
+
+        if (this.head == null) {
+            //Single element
+            this.tail = null;
+        }
+        this.size--;
+        return fistElement;
+    }
+
+    private void validateIndex(int index) {
         if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException("What the hell are you thinking index is out of BOUNDS!");
+        }
+    }
+    private void checkEmpty() {
+        if (this.size == 0) {
+            throw new NoSuchElementException("Node is empty");
         }
     }
 }
