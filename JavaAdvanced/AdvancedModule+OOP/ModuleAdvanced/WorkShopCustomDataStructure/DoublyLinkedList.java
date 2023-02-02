@@ -9,7 +9,7 @@ public class DoublyLinkedList {
 //int removeLast() – removes the element at the end of the collection
 //void forEach() – goes through the collection and executes a given action
 //int[] toArray() – returns the collection as an array
-    class ListNode {
+static class ListNode {
         int element;
         ListNode next;
         ListNode prev;
@@ -24,7 +24,7 @@ public class DoublyLinkedList {
     private int size;
 
 
-    // void addFirst(int element) – adds an element at the beginning of the collection
+// void addFirst(int element) – adds an element at the beginning of the collection
     public void addFirst(int element) {
         ListNode newNode = new ListNode(element);
 
@@ -38,7 +38,7 @@ public class DoublyLinkedList {
         this.size++;
     }
 
-    //void addLast(int element) – adds an element at the end of the collection
+//void addLast(int element) – adds an element at the end of the collection
     public void addLast(int element) {
         ListNode newNode = new ListNode(element);
 
@@ -53,7 +53,7 @@ public class DoublyLinkedList {
     }
 
 
-    //int get(int index) - Returns the element at the specified position in this list
+//int get(int index) - Returns the element at the specified position in this list
     public int get(int index) {
         validateIndex(index);
 
@@ -83,9 +83,27 @@ public class DoublyLinkedList {
         if (this.head == null) {
             //Single element
             this.tail = null;
+        } else {
+            this.head.prev = null;
         }
         this.size--;
         return fistElement;
+    }
+
+//int removeLast() – removes the element at the end of the collection
+    public int removeLast() {
+
+    int element = this.tail.element;
+    this.tail = this.tail.prev;
+
+    if (this.tail == null) {
+        this.head = null;
+    } else {
+        this.tail.next = null;
+    }
+
+    this.size--;
+    return element;
     }
 
     private void validateIndex(int index) {
