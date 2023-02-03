@@ -37,4 +37,8 @@ public class Basket {
     public void setData(List<Egg> data) {
         this.data = data;
     }
+
+    public void addEgg(Egg egg) {
+        data.add(egg);
+    }
 }
