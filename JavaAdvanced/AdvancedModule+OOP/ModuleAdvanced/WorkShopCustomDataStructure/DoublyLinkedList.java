@@ -5,8 +5,6 @@ import java.util.function.Consumer;
 
 public class DoublyLinkedList {
 
-
-    //int[] toArray() – returns the collection as an array
     static class ListNode {
         int element;
         ListNode next;
