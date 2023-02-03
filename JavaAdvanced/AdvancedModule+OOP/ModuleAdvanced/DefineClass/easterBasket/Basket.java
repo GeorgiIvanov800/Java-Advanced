@@ -39,6 +39,16 @@ public class Basket {
     }
 
     public void addEgg(Egg egg) {
-        data.add(egg);
+
+        if (this.capacity > this.data.size()) {
+            this.data.add(egg);
+        }
+
     }
+
+    public boolean removeEgg(String color) {
+        return this.data.removeIf(egg -> egg.getColor().equals(color));
+    }
+
+
 }
