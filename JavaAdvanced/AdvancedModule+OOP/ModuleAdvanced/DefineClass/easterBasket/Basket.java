@@ -59,4 +59,8 @@ public class Basket {
         return this.data.stream().filter(egg -> egg.getColor().equals(color))
                 .findFirst().get();
     }
+
+    public int getCount() {
+        return this.data.size();
+    }
 }
