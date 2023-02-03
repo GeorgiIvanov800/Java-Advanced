@@ -63,4 +63,15 @@ public class Basket {
     public int getCount() {
         return this.data.size();
     }
+
+    public String report() {
+        StringBuilder bd = new StringBuilder();
+        this.data.forEach(egg -> {
+            bd.append(String.format("%s basket contains: %n",this.material));
+            bd.append(System.lineSeparator());
+            bd.append(egg.toString());
+            bd.append(System.lineSeparator());
+        });
+        return bd.toString();
+    }
 }
