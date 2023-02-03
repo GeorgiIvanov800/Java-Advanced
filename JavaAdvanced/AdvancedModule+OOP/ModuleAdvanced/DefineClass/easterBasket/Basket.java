@@ -1,6 +1,7 @@
 package ModuleAdvanced.DefineClass.easterBasket;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Basket {
@@ -48,6 +49,10 @@ public class Basket {
 
     public boolean removeEgg(String color) {
         return this.data.removeIf(egg -> egg.getColor().equals(color));
+    }
+
+    public Egg getStrongestEgg() {
+        return this.data.stream().max(Comparator.comparing(Egg::getStrength)).get();
     }
 
 
