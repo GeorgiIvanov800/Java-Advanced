@@ -1,6 +1,5 @@
 package ModuleOOP.AbstractClassAndInterface.MultipleImplementation;
 
-public interface Identifiable {
-    String getId();
-
+public interface Birthable {
+    String getBirthDate();
 }

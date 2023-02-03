@@ -1,6 +1,6 @@
 package ModuleOOP.AbstractClassAndInterface.MultipleImplementation;
 
-public interface Identifiable {
-    String getId();
-
+public interface Person {
+    String getName();
+    int getAge();
 }
