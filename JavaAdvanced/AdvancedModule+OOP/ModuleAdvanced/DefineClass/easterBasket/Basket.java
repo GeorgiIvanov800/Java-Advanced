@@ -55,5 +55,8 @@ public class Basket {
         return this.data.stream().max(Comparator.comparing(Egg::getStrength)).get();
     }
 
-
+    public Egg getEgg(String color) {
+        return this.data.stream().filter(egg -> egg.getColor().equals(color))
+                .findFirst().get();
+    }
 }
