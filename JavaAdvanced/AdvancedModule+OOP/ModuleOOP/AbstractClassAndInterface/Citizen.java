@@ -1,11 +1,11 @@
 package ModuleOOP.AbstractClassAndInterface;
 
-public class Ctizen implements  Person {
+public class Citizen implements  Person {
 
     private String name;
     private int age;
 
-    public Ctizen(String name, int age) {
+    public Citizen(String name, int age) {
         this.name = name;
         this.age = age;
     }
