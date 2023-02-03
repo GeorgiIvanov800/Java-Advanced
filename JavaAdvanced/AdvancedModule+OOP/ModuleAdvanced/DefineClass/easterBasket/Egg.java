@@ -34,4 +34,9 @@ public class Egg {
     public void setShape(String shape) {
         this.shape = shape;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s egg, with %d strength and %s shape.%n", this.color, this.strength, this.shape);
+    }
 }
