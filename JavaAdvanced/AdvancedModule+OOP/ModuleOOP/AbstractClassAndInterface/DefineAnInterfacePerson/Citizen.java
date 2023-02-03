@@ -1,6 +1,6 @@
-package ModuleOOP.AbstractClassAndInterface;
+package ModuleOOP.AbstractClassAndInterface.DefineAnInterfacePerson;
 
-public class Citizen implements  Person {
+public class Citizen implements Person {
 
     private String name;
     private int age;

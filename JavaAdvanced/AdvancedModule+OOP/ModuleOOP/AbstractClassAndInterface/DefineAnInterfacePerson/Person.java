@@ -1,4 +1,4 @@
-package ModuleOOP.AbstractClassAndInterface;
+package ModuleOOP.AbstractClassAndInterface.DefineAnInterfacePerson;
 
 public interface Person {
     String getName();
