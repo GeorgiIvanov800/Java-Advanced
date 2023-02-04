@@ -14,9 +14,9 @@ public class Scale<T extends Comparable<T>> {
             return right;
         }
         if (left.compareTo(right) == 0) {
-            return left;
+            return right;
         } else {
-            return null;
+            return left;
         }
     }
 }
