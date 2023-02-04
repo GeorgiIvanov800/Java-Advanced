@@ -6,10 +6,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        Container<Integer> container = new Container<>();
-        MapContainer<String, Integer> map = new MapContainer<>();
-
-        map.addItem("Gosho", 26);
-        System.out.println();
+        Power power = new Power();
+        power.multiplyByTwo(5);
     }
 }
