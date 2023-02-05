@@ -1,4 +1,4 @@
-package ModuleOOP.Polymorphism;
+package ModuleOOP.Polymorphism.MathOperation;
 
 public class MathOperation {
 

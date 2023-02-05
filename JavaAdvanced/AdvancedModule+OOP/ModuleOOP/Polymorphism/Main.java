@@ -1,6 +1,14 @@
 package ModuleOOP.Polymorphism;
 
+import ModuleOOP.Polymorphism.MathOperation.MathOperation;
+
 public class Main {
-    MathOperation math = new MathOperation();
+    public static void main(String[] args) {
+        MathOperation math = new MathOperation();
+        System.out.println(math.add(2, 2));
+        System.out.println(math.add(3, 3, 3));
+        System.out.println(math.add(4, 4, 4, 4));
+
+    }
 
 }
