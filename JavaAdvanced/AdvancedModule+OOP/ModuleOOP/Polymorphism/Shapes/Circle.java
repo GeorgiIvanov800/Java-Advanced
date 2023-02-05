@@ -1,7 +1,7 @@
 package ModuleOOP.Polymorphism.Shapes;
 
 public class Circle extends Shape{
-    private Double radius;
+    private final Double radius;
 
     public Circle(Double radius) {
         this.radius = radius;
@@ -9,11 +9,17 @@ public class Circle extends Shape{
 
     @Override
     public Double calculatePerimeter() {
-        return 2 * Math.PI * radius;
+        if (perimeter == null) {
+            perimeter = 2 * Math.PI * radius;
+        }
+        return perimeter;
     }
 
     @Override
     public Double calculateArea() {
-        return Math.PI * radius * radius;
+        if (area == 0) {
+            area = Math.PI * radius * radius;
+        }
+        return area;
     }
 }
