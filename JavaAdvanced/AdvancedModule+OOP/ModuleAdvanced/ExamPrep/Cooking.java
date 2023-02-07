@@ -18,9 +18,37 @@ public class Cooking {
         Arrays.stream(scanner.nextLine().split("\\s+"))
                 .map(Integer::parseInt)
                 .forEach(ele -> ingredients.push(ele));
-        System.out.println();
-        //sum first from queue with second from stack
-        
+
+        //sum first from queue with first from stack
+        while (!liquids.isEmpty() && !ingredients.isEmpty()) {
+
+            int sum = liquids.peek() + ingredients.peek();
+            String cookedFood;
+            switch (sum) {
+                case 25:
+                    cookedFood = "Bread";
+                    break;
+                case 50:
+                    cookedFood = "Cake";
+                    break;
+                case 75:
+                    cookedFood = "Fruit Pie";
+                    break;
+                case 100:
+                    cookedFood = "Pastry";
+                    break;
+                default:
+                    cookedFood = null;
+            }
+            liquids.poll();
+            int lastIngredient = ingredients.pop();
+
+            if (cookedFood != null) {
+
+            } else {
+                ingredients.push(lastIngredient + 3);
+            }
+        }
 
         //check the sum according to the table and do the correct thing
 
