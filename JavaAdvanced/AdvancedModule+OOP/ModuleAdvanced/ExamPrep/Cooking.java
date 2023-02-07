@@ -20,13 +20,13 @@ public class Cooking {
         Map<String, Integer> cookedFoods = new TreeMap<>();
         cookedFoods.put("Bread", 0);
         cookedFoods.put("Cake", 0);
-        cookedFoods.put("Fruit pie", 0);
+        cookedFoods.put("Fruit Pie", 0);
         cookedFoods.put("Pastry", 0);
 
         //sum first from queue with first from stack
         while (!liquids.isEmpty() && !ingredients.isEmpty()) {
-
-            int sum = liquids.peek() + ingredients.peek();
+            int lastIngredient = ingredients.pop();
+            int sum = liquids.poll() + lastIngredient;
             String cookedFood;
 
             switch (sum) {
@@ -37,16 +37,15 @@ public class Cooking {
                     cookedFood = "Cake";
                     break;
                 case 75:
-                    cookedFood = "Fruit pie";
+                    cookedFood = "Fruit Pie";
                     break;
                 case 100:
                     cookedFood = "Pastry";
                     break;
                 default:
                     cookedFood = null;
+                    break;
             }
-            liquids.poll();
-            int lastIngredient = ingredients.pop();
 
             if (cookedFood != null) {
                 int newVal = cookedFoods.get(cookedFood) + 1;
@@ -56,7 +55,7 @@ public class Cooking {
             }
         }
         boolean allFoodAreCooked = cookedFoods.entrySet().stream().allMatch(e -> e.getValue() > 0);
-        
+
         if (allFoodAreCooked) {
             System.out.println("Wohoo! You succeeded in cooking all the food!");
         } else {
@@ -64,14 +63,15 @@ public class Cooking {
         }
 
         String remainingLiquids = liquids.isEmpty() ? "none" : liquids.stream()
-                        .map(String :: valueOf)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
 
-                                .collect(Collectors.joining(", "));
         System.out.println("Liquids left: " + remainingLiquids);
 
         String remainingIngredients = ingredients.isEmpty() ? "none" : ingredients.stream()
-                .map(String :: valueOf)
+                .map(String::valueOf)
                 .collect(Collectors.joining(", "));
+
         System.out.println("Ingredients left: " + remainingIngredients);
 
 
