@@ -28,6 +28,7 @@ public class Cooking {
 
             int sum = liquids.peek() + ingredients.peek();
             String cookedFood;
+
             switch (sum) {
                 case 25:
                     cookedFood = "Bread";
@@ -55,17 +56,26 @@ public class Cooking {
             }
         }
         boolean allFoodAreCooked = cookedFoods.entrySet().stream().allMatch(e -> e.getValue() > 0);
+        
         if (allFoodAreCooked) {
-
+            System.out.println("Wohoo! You succeeded in cooking all the food!");
         } else {
-
+            System.out.println("Ugh, what a pity! You didn't have enough materials to cook everything.");
         }
+
+        String remainingLiquids = liquids.isEmpty() ? "none" : liquids.stream()
+                        .map(String :: valueOf)
+
+                                .collect(Collectors.joining(", "));
+        System.out.println("Liquids left: " + remainingLiquids);
+
+        String remainingIngredients = ingredients.isEmpty() ? "none" : ingredients.stream()
+                .map(String :: valueOf)
+                .collect(Collectors.joining(", "));
+        System.out.println("Ingredients left: " + remainingIngredients);
+
+
         cookedFoods.entrySet().forEach(e -> System.out.println(e.getKey() + ": " + e.getValue()));
-
-        //check the sum according to the table and do the correct thing
-
-        //Check and print output
-
 
     }
 }
