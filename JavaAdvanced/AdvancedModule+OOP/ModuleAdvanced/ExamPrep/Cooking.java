@@ -1,8 +1,6 @@
 package ModuleAdvanced.ExamPrep;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cooking {
@@ -19,6 +17,12 @@ public class Cooking {
                 .map(Integer::parseInt)
                 .forEach(ele -> ingredients.push(ele));
 
+        Map<String, Integer> cookedFoods = new TreeMap<>();
+        cookedFoods.put("Bread", 0);
+        cookedFoods.put("Cake", 0);
+        cookedFoods.put("Fruit pie", 0);
+        cookedFoods.put("Pastry", 0);
+
         //sum first from queue with first from stack
         while (!liquids.isEmpty() && !ingredients.isEmpty()) {
 
@@ -32,7 +36,7 @@ public class Cooking {
                     cookedFood = "Cake";
                     break;
                 case 75:
-                    cookedFood = "Fruit Pie";
+                    cookedFood = "Fruit pie";
                     break;
                 case 100:
                     cookedFood = "Pastry";
@@ -44,11 +48,19 @@ public class Cooking {
             int lastIngredient = ingredients.pop();
 
             if (cookedFood != null) {
-
+                int newVal = cookedFoods.get(cookedFood) + 1;
+                cookedFoods.put(cookedFood, newVal);
             } else {
                 ingredients.push(lastIngredient + 3);
             }
         }
+        boolean allFoodAreCooked = cookedFoods.entrySet().stream().allMatch(e -> e.getValue() > 0);
+        if (allFoodAreCooked) {
+
+        } else {
+
+        }
+        cookedFoods.entrySet().forEach(e -> System.out.println(e.getKey() + ": " + e.getValue()));
 
         //check the sum according to the table and do the correct thing
 
