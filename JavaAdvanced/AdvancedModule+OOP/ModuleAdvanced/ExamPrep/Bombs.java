@@ -10,6 +10,7 @@ public class Bombs {
         Scanner scanner = new Scanner(System.in);
         int input = Integer.parseInt(scanner.nextLine());
         String[] command = scanner.nextLine().split(",");
+
         char[][] field = new char[input][input];
 
         int sapperRow = 0;
@@ -19,11 +20,8 @@ public class Bombs {
 
         for (int row = 0; row < field.length; row++) {
             String line = scanner.nextLine();
-            List<Character> characterList = Arrays.stream(line.split(" "))
-                    .map(e -> e.charAt(0))
-                    .collect(Collectors.toList());
-
-
+            char[] arr = line.replace(" ","").toCharArray();
+            field[row] = arr;
             if (line.contains("s")) {
                 sapperRow = row;
                 sapperCol = line.indexOf("s");
@@ -31,10 +29,6 @@ public class Bombs {
 
             if (line.contains("B")) {
                 bombCounter++;
-            }
-            for (int col = 0; col < characterList.size(); col++) {
-                char currentChar = characterList.get(col);
-                field[row][col] = currentChar;
             }
         }
 
@@ -81,5 +75,8 @@ public class Bombs {
 
         System.out.printf("%d bombs left on the field. Sapper position: (%d,%d)%n", bombCounter - bombsFound, sapperRow, sapperCol);
     }
-    
+
+    private static boolean isInBounds(char[][] field, int r, int c) {
+        return r >= 0 && r < field.length && c >= 0 && c < field[r].length;
+    }
 }
