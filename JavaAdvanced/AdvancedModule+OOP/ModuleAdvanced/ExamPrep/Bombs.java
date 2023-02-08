@@ -1,7 +1,9 @@
 package ModuleAdvanced.ExamPrep;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Bombs {
     public static void main(String[] args) {
@@ -17,7 +19,10 @@ public class Bombs {
 
         for (int row = 0; row < field.length; row++) {
             String line = scanner.nextLine();
-            field[row] = line.toCharArray();
+            List<Character> characterList = Arrays.stream(line.split(" "))
+                    .map(e -> e.charAt(0))
+                    .collect(Collectors.toList());
+
 
             if (line.contains("s")) {
                 sapperRow = row;
@@ -26,6 +31,10 @@ public class Bombs {
 
             if (line.contains("B")) {
                 bombCounter++;
+            }
+            for (int col = 0; col < characterList.size(); col++) {
+                char currentChar = characterList.get(col);
+                field[row][col] = currentChar;
             }
         }
 
@@ -57,15 +66,20 @@ public class Bombs {
 
             if (field[sapperRow][sapperCol] == 'B') {
                 System.out.println("You found a bomb!");
+                field[sapperRow][sapperCol] = '+';
                 bombsFound++;
+                if (bombsFound == bombCounter) {
+                    System.out.println("Congratulations! You found all bombs!");
+                    return;
+                }
             } else if (field[sapperRow][sapperCol] == 'e') {
                 System.out.printf("END! %d bombs left on the field%n", bombCounter - bombsFound);
+                return;
             }
 
         }
-    }
 
-    private static boolean isInBounds(char[][] field, int r, int c) {
-        return r >= 0 && r < field.length && c >= 0 && c < field[r].length;
+        System.out.printf("%d bombs left on the field. Sapper position: (%d,%d)%n", bombCounter - bombsFound, sapperRow, sapperCol);
     }
+    
 }
