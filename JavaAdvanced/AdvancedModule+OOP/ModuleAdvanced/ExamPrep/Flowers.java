@@ -44,9 +44,9 @@ public class Flowers {
         wreathCount +=  leftoverWreaths;
 
         if (wreathCount >= 5) {
-            System.out.printf("You made it, you are going to the competition with %d wreaths!", wreathCount);
+            System.out.printf("You made it, you are going to the competition with %d wreaths!%n", wreathCount);
         } else {
-            System.out.printf("You didn't make it, you need %d wreaths more!", 5 - wreathCount);
+            System.out.printf("You didn't make it, you need %d wreaths more!%n", 5 - wreathCount);
         }
     }
 }
