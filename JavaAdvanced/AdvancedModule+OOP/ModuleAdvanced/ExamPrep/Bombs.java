@@ -13,6 +13,7 @@ public class Bombs {
         int sapperRow = 0;
         int sapperCol = 0;
         int bombCounter = 0;
+        int bombsFound = 0;
 
         for (int row = 0; row < field.length; row++) {
             String line = scanner.nextLine();
@@ -52,6 +53,13 @@ public class Bombs {
                         sapperCol--;
                     }
                     break;
+            }
+
+            if (field[sapperRow][sapperCol] == 'B') {
+                System.out.println("You found a bomb!");
+                bombsFound++;
+            } else if (field[sapperRow][sapperCol] == 'e') {
+                System.out.printf("END! %d bombs left on the field%n", bombCounter - bombsFound);
             }
 
         }
