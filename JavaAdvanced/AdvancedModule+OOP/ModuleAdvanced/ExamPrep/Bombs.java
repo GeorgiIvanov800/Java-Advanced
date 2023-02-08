@@ -1,4 +1,5 @@
 package ModuleAdvanced.ExamPrep;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -32,16 +33,31 @@ public class Bombs {
 
             switch (commandName) {
                 case "up":
-                    
+                    if (sapperRow != 0) {
+                        sapperRow--;
+                    }
                     break;
                 case "down":
+                    if (sapperRow != field.length - 1) {
+                        sapperRow++;
+                    }
                     break;
                 case "right":
+                    if (sapperCol != field.length - 1) {
+                        sapperCol++;
+                    }
                     break;
                 case "left":
+                    if (sapperCol != 0) {
+                        sapperCol--;
+                    }
                     break;
             }
 
         }
+    }
+
+    private static boolean isInBounds(char[][] field, int r, int c) {
+        return r >= 0 && r < field.length && c >= 0 && c < field[r].length;
     }
 }
