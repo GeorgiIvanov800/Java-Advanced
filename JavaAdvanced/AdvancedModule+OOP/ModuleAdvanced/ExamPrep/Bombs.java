@@ -59,12 +59,18 @@ public class Bombs {
             }
             if (matrix[sapperRow][sapperCol] == 'B') {
                 System.out.println("You found a bomb!");
+                matrix[sapperRow][sapperCol] = '+';
                 bombsFound++;
+                if (bombsFound == bombCounter) {
+                    System.out.println("Congratulations! You found all bombs!");
+                    return;
+                }
             } else if (matrix[sapperRow][sapperCol] == 'e') {
                 System.out.printf("END! %d bombs left on the field%n", bombCounter - bombsFound);
+                return;
             }
         }
-
+        System.out.printf("%d bombs left on the field. Sapper position: (%d,%d)", bombCounter - bombsFound, sapperRow, sapperCol);
 
     }
 }
