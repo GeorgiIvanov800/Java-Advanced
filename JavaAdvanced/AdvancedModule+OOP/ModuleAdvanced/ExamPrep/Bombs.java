@@ -32,7 +32,7 @@ public class Bombs {
                 matrix[row][col] = currentChar;
             }
         }
-
+        int bombsFound = 0;
         for (int i = 0; i < commands.length; i++) {
             String commandName = commands[i];
             switch (commandName) {
@@ -57,6 +57,14 @@ public class Bombs {
                     }
                     break;
             }
+            if (matrix[sapperRow][sapperCol] == 'B') {
+                System.out.println("You found a bomb!");
+                bombsFound++;
+            } else if (matrix[sapperRow][sapperCol] == 'e') {
+                System.out.printf("END! %d bombs left on the field%n", bombCounter - bombsFound);
+            }
         }
+
+
     }
 }
