@@ -32,16 +32,16 @@ public class ReVolt {
 
             switch (command) {
                 case "up":
-                    movePLayer(matrix,  - 1, 0);
+                    movePLayer(matrix, -1, 0);
                     break;
                 case "down":
-                    movePLayer(matrix,  1, 0);
+                    movePLayer(matrix, 1, 0);
                     break;
                 case "left":
-                    movePLayer(matrix, 0, - 1);
+                    movePLayer(matrix, 0, -1);
                     break;
                 case "right":
-                movePLayer(matrix, 0,  + 1);
+                    movePLayer(matrix, 0, +1);
                     break;
             }
 
@@ -69,14 +69,16 @@ public class ReVolt {
             matrix[playerRow][playerCol] = '-';
             playerRow = nextRow;
             playerCol = nextCol;
-            moveBonus(matrix, rowMutator, colMutator);
-            return;
+            movePLayer(matrix, rowMutator, colMutator);
 
         } else if (matrix[nextRow][nextCol] == 'F') {
             hasWon = true;
         }
 
-        matrix[playerRow][playerCol] = '-';
+        if (matrix[playerRow][playerCol] != 'B') {
+            matrix[playerRow][playerCol] = '-';
+        }
+
         matrix[nextRow][nextCol] = 'f';
         playerRow = nextRow;
         playerCol = nextCol;
@@ -95,7 +97,7 @@ public class ReVolt {
             }
         }
 
-         if (matrix[nextRow][nextCol] == 'F') {
+        if (matrix[nextRow][nextCol] == 'F') {
             hasWon = true;
         }
 
