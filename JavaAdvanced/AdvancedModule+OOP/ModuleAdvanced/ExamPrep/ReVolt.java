@@ -6,6 +6,7 @@ public class ReVolt {
 
     public static int playerRow;
     public static int playerCol;
+    public static boolean hasWon = false;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -26,21 +27,21 @@ public class ReVolt {
 
         }
 
-        while (commandsCount-- > 0) {
+        while (commandsCount-- > 0 && !hasWon) {
             String command = scanner.nextLine();
 
             switch (command) {
                 case "up":
-                    movePLayerUp(matrix);
+                    movePLayer(matrix, playerRow - 1, playerCol);
                     break;
                 case "down":
-
+                    movePLayer(matrix, playerRow + 1, playerCol);
                     break;
                 case "left":
-
+                    movePLayer(matrix, playerRow, playerCol - 1);
                     break;
                 case "right":
-
+                movePLayer(matrix, playerRow, playerCol + 1);
                     break;
             }
 
@@ -51,7 +52,31 @@ public class ReVolt {
     }
 
 
-    private static void movePLayerUp(char[][] matrix) {
+    private static void movePLayer(char[][] matrix, int nextRow, int nextCol) {
+
+        if (isOutOfBounds(matrix, nextRow, nextCol)) {
+            if (nextRow < 0 || nextRow >= matrix.length) {
+                nextRow = nextRow < 0 ? matrix.length - 1 : 0;
+            } else {
+                nextCol = nextRow < 0 ? matrix[nextRow].length - 1 : 0;
+            }
+        }
+        if (matrix[nextRow][nextCol] == 'T') {
+            return;
+        } else if (matrix[nextRow][nextCol] == 'B') {
+            moveBonus(matrix);
+        } else if (matrix[nextRow][nextCol] == 'F') {
+            hasWon = true;
+        }
+
+        matrix[playerRow][playerCol] = '-';
+        matrix[nextRow][nextCol] = 'f';
+        playerRow = nextRow;
+        playerCol = nextCol;
+    }
+
+    private static void moveBonus(char[][] matrix) {
+
         int nextRow = playerRow - 1;
         int nextCol = playerCol;
 
@@ -61,10 +86,10 @@ public class ReVolt {
             } else {
                 nextCol = nextRow < 0 ? matrix[nextRow].length - 1 : 0;
             }
-        } else if (matrix[nextRow][nextCol] == 'T') {
-            return;
-        } else if (matrix[nextRow][nextCol] == 'B') {
+        }
 
+         if (matrix[nextRow][nextCol] == 'F') {
+            hasWon = true;
         }
 
         matrix[playerRow][playerCol] = '-';
