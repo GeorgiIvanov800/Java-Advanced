@@ -84,27 +84,27 @@ public class ReVolt {
         playerCol = nextCol;
     }
 
-    private static void moveBonus(char[][] matrix, int rowMutator, int colMutator) {
-
-        int nextRow = playerRow + rowMutator;
-        int nextCol = playerCol + colMutator;
-
-        if (isOutOfBounds(matrix, nextRow, nextCol)) {
-            if (nextRow < 0 || nextRow >= matrix.length) {
-                nextRow = nextRow < 0 ? matrix.length - 1 : 0;
-            } else {
-                nextCol = nextRow < 0 ? matrix[nextRow].length - 1 : 0;
-            }
-        }
-
-        if (matrix[nextRow][nextCol] == 'F') {
-            hasWon = true;
-        }
-
-        matrix[nextRow][nextCol] = 'f';
-        playerRow = nextRow;
-        playerCol = nextCol;
-    }
+//    private static void moveBonus(char[][] matrix, int rowMutator, int colMutator) {
+//
+//        int nextRow = playerRow + rowMutator;
+//        int nextCol = playerCol + colMutator;
+//
+//        if (isOutOfBounds(matrix, nextRow, nextCol)) {
+//            if (nextRow < 0 || nextRow >= matrix.length) {
+//                nextRow = nextRow < 0 ? matrix.length - 1 : 0;
+//            } else {
+//                nextCol = nextRow < 0 ? matrix[nextRow].length - 1 : 0;
+//            }
+//        }
+//
+//        if (matrix[nextRow][nextCol] == 'F') {
+//            hasWon = true;
+//        }
+//
+//        matrix[nextRow][nextCol] = 'f';
+//        playerRow = nextRow;
+//        playerCol = nextCol;
+//    }
 
 
     public static boolean isOutOfBounds(char[][] matrix, int r, int c) {
