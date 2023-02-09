@@ -32,27 +32,29 @@ public class ReVolt {
 
             switch (command) {
                 case "up":
-                    movePLayer(matrix, playerRow - 1, playerCol);
+                    movePLayer(matrix,  - 1, 0);
                     break;
                 case "down":
-                    movePLayer(matrix, playerRow + 1, playerCol);
+                    movePLayer(matrix,  1, 0);
                     break;
                 case "left":
-                    movePLayer(matrix, playerRow, playerCol - 1);
+                    movePLayer(matrix, 0, - 1);
                     break;
                 case "right":
-                movePLayer(matrix, playerRow, playerCol + 1);
+                movePLayer(matrix, 0,  + 1);
                     break;
             }
 
 
         }
-
+        System.out.println(hasWon ? "PLayer won!" : "Player lost!");
         printMatrix(matrix);
     }
 
 
-    private static void movePLayer(char[][] matrix, int nextRow, int nextCol) {
+    private static void movePLayer(char[][] matrix, int rowMutator, int colMutator) {
+        int nextRow = playerRow + rowMutator;
+        int nextCol = playerCol + colMutator;
 
         if (isOutOfBounds(matrix, nextRow, nextCol)) {
             if (nextRow < 0 || nextRow >= matrix.length) {
@@ -64,7 +66,12 @@ public class ReVolt {
         if (matrix[nextRow][nextCol] == 'T') {
             return;
         } else if (matrix[nextRow][nextCol] == 'B') {
-            moveBonus(matrix);
+            matrix[playerRow][playerCol] = '-';
+            playerRow = nextRow;
+            playerCol = nextCol;
+            moveBonus(matrix, rowMutator, colMutator);
+            return;
+
         } else if (matrix[nextRow][nextCol] == 'F') {
             hasWon = true;
         }
@@ -75,10 +82,10 @@ public class ReVolt {
         playerCol = nextCol;
     }
 
-    private static void moveBonus(char[][] matrix) {
+    private static void moveBonus(char[][] matrix, int rowMutator, int colMutator) {
 
-        int nextRow = playerRow - 1;
-        int nextCol = playerCol;
+        int nextRow = playerRow + rowMutator;
+        int nextCol = playerCol + colMutator;
 
         if (isOutOfBounds(matrix, nextRow, nextCol)) {
             if (nextRow < 0 || nextRow >= matrix.length) {
@@ -92,7 +99,6 @@ public class ReVolt {
             hasWon = true;
         }
 
-        matrix[playerRow][playerCol] = '-';
         matrix[nextRow][nextCol] = 'f';
         playerRow = nextRow;
         playerCol = nextCol;
