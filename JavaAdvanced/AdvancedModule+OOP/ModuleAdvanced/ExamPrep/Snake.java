@@ -11,16 +11,15 @@ public class Snake {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int matrixSize = Integer.parseInt(scanner.nextLine());
+        int foodEaten = 0;
+        boolean isSnakeWithinLimits = true;
 
         char[][] field = new char[matrixSize][matrixSize];
         List<Integer> lairCoordinates = new ArrayList<>();
 
-
         fillField(scanner, field);
         findLairs(field, lairCoordinates);
 
-        int foodEaten = 0;
-        boolean isSnakeWithinLimits = true;
 
         while (isSnakeWithinLimits && foodEaten < 10) {
             String command = scanner.nextLine();

@@ -1,4 +1,4 @@
-package ModuleAdvanced.MultidimensionalArrays.Exercises;
+package ModuleAdvanced.ExamPrep;
 
 import java.io.InterruptedIOException;
 import java.util.ArrayList;
