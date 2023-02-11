@@ -63,6 +63,6 @@ public class PastryShop {
             System.out.println("Ingredients left: " + remainingIngridients);
         }
 
-        
+
     }
 }
