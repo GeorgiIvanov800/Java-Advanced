@@ -53,12 +53,16 @@ public class PastryShop {
         } else {
             System.out.println("What a pity! You didn't have enough materials to cook everything.");
         }
-
-        System.out.println("Liquids left: ");
+        String remainingIngridients =  ingredientsStack.stream().map(String::valueOf)
+                        .collect(Collectors.joining(", "));
+        System.out.print("Liquids left: ");
         if (liquidsQueue.isEmpty()) {
             System.out.print("none");
+            System.out.println();
         } else {
-            liquidsQueue.stream().forEach(ele -> System.out.print(String.join(", ")));
+            System.out.println("Ingredients left: " + remainingIngridients);
         }
+
+        
     }
 }
