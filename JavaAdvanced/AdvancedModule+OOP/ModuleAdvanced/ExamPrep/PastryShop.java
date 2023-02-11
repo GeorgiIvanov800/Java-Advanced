@@ -48,6 +48,17 @@ public class PastryShop {
             }
         }
 
-        
+        if (biscuitCount > 0 && cakeCount > 0 && pieCount > 0 && pastryCount > 0) {
+            System.out.println("Great! You succeeded in cooking all the food!");
+        } else {
+            System.out.println("What a pity! You didn't have enough materials to cook everything.");
+        }
+
+        System.out.println("Liquids left: ");
+        if (liquidsQueue.isEmpty()) {
+            System.out.print("none");
+        } else {
+            liquidsQueue.stream().forEach(ele -> System.out.print(String.join(", ")));
+        }
     }
 }
