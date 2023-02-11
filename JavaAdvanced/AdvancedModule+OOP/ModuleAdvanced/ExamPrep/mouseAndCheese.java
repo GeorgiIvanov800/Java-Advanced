@@ -3,8 +3,8 @@ package ModuleAdvanced.ExamPrep;
 import java.util.Scanner;
 
 public class mouseAndCheese {
-    private static int row = 0;
-    private static int col = 0;
+    private static int rowws = 0;
+    private static int colls = 0;
     private static int eatenCheese = 0;
     private static boolean mouseIsinField = false;
 
@@ -19,8 +19,8 @@ public class mouseAndCheese {
             String line = scanner.nextLine();
             field[i] = scanner.nextLine().toCharArray();
             if (line.contains("M")) {
-                row = i;
-                col = line.indexOf("M");
+                rowws = i;
+                colls = line.indexOf("M");
             }
         }
 
@@ -32,16 +32,16 @@ public class mouseAndCheese {
 
             switch (command) {
                 case "up":
-                    moveMouse(field, row - 1, col);
+                    moveMouse(field, rowws - 1, colls);
                     break;
                 case "down":
-                    moveMouse(field, row + 1, col);
+                    moveMouse(field, rowws + 1, colls);
                     break;
                 case "left":
-                    moveMouse(field, row, col - 1);
+                    moveMouse(field, rowws, colls - 1);
                     break;
                 case "right":
-                    moveMouse(field, row, col + 1);
+                    moveMouse(field, rowws, colls + 1);
                     break;
 
             }
@@ -75,10 +75,10 @@ public class mouseAndCheese {
 
         }
 
-        field[row][col] = '-';
+        field[rowws][colls] = '-';
         field[nextRow][nextCol] = 'M';
-        row = nextRow;
-        col = nextCol;
+        rowws = nextRow;
+        colls = nextCol;
     }
 
     private static boolean isInBounds(char[][] field, int r, int c) {
