@@ -40,9 +40,9 @@ public class Snake {
 
             }
             command = scanner.nextLine();
-            System.out.println("<==================>");
-            printMatrix(field);
-            System.out.println("<==================>");
+           // System.out.println("<==================>");
+            //printMatrix(field);
+            //System.out.println("<==================>");
 
 
         }
@@ -50,8 +50,10 @@ public class Snake {
         if (!isSnakeWithinLimits) {
             System.out.println("Games over!");
             System.out.println("Food eaten: " + foodEaten);
+            printMatrix(field);
         } else {
             System.out.println("You won! You fed the snake.\n Food eaten: " + foodEaten);
+            printMatrix(field);
         }
 
 
@@ -61,16 +63,20 @@ public class Snake {
         
         if (!isInBounds(field, nextRow, nextCol)) {
             isSnakeWithinLimits = false;
+            field[snakeRow][snakeCol] = '.';
             return;
         }
         
         if (field[nextRow][nextCol] == '*') {
             foodEaten++;
         } else if (field[nextRow][nextCol] == 'B') {
+            field[snakeRow][snakeCol] = '.';
+
+            field[coordinates.get(0)][coordinates.get(1)] = '.';
+            field[coordinates.get(2)][coordinates.get(3)] = 'S';
             snakeRow = coordinates.get(2);
             snakeCol = coordinates.get(3);
-            field[coordinates.get(0)][coordinates.get(1)] = '.';
-            field[coordinates.get(2)][coordinates.get(3)] = '.';
+            return;
         }
 
         field[snakeRow][snakeCol] = '.';
