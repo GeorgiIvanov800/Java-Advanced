@@ -89,7 +89,6 @@ public class RallyRacing {
                     tunnelsCoordinate.add(row);
                     tunnelsCoordinate.add(col);
                 }
-
             }
         }
     }
