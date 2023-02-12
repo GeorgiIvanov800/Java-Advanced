@@ -20,8 +20,16 @@ public class Bee {
             }
         }
 
-        printMatrix(territory);
-        System.out.println();
+        String command = scanner.nextLine();
+
+        while (!command.equals("End")) {
+
+
+
+            command = scanner.nextLine();
+        }
+
+
     }
 
 
