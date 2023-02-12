@@ -26,14 +26,16 @@ public class Bee {
         while (!command.equals("End")) {
             //before the move -> .
             territory[beeRow][beeCol] = '.';
-            if (command.equals("right")) {
+            if (command.equals("right") && beeCol != size - 1) {
                 beeCol++;
-            } else if (command.equals("left")) {
+            } else if (command.equals("left") && beeCol != 0) {
                 beeCol--;
-            } else if (command.equals("down")) {
+            } else if (command.equals("down") && beeRow != size - 1) {
                 beeRow++;
-            } else if (command.equals("up")) {
+            } else if (command.equals("up") && beeRow != 0) {
                 beeRow--;
+            } else {
+                System.out.println("The bee is lost");
             }
             //after the move -> 'B'
             territory[beeRow][beeCol] = 'B';
@@ -42,6 +44,8 @@ public class Bee {
 
 
     }
+
+
 
 
     private static void printMatrix(char[][] matrix) {
