@@ -1,5 +1,4 @@
 package ModuleAdvanced.ExamPrep;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,8 +20,8 @@ public class Snake {
         fillField(scanner, field);
         findLairs(field, lairCoordinates);
 
-        String command = scanner.nextLine();
         while (isSnakeWithinLimits && (foodEaten < 10)) {
+            String command = scanner.nextLine();
 
             switch (command) {
                 case "up":
@@ -39,16 +38,10 @@ public class Snake {
                     break;
 
             }
-            command = scanner.nextLine();
-           // System.out.println("<==================>");
-            //printMatrix(field);
-            //System.out.println("<==================>");
-
-
         }
 
         if (!isSnakeWithinLimits) {
-            System.out.println("Games over!");
+            System.out.println("Game over!");
             System.out.println("Food eaten: " + foodEaten);
             printMatrix(field);
         } else {
