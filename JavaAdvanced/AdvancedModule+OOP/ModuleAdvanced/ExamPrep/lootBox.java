@@ -33,6 +33,20 @@ public class lootBox {
             }
         }
 
-        System.out.println();
+        int sum = loot.stream().mapToInt(e -> e).sum();
+
+        if (firstBoxQueue.isEmpty()) {
+            System.out.println("First lootbox is empty");
+        } else {
+            System.out.println("Second lootbox is empty");
+
+        }
+        if (sum >= 100) {
+            System.out.println("Your loot was epic! Value: " + sum);
+        } else {
+            System.out.println("Your loot was poor... Value: " + sum);
+        }
+
+
     }
 }
