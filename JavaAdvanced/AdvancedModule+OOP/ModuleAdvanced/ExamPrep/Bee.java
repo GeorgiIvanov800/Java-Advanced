@@ -37,7 +37,7 @@ public class Bee {
                 beeRow--;
             } else {
                 territory[beeRow][beeCol] = '.';
-                System.out.println("The bee is lost");
+                System.out.println("The bee got lost!");
                 break;
             }
 
@@ -53,9 +53,9 @@ public class Bee {
         }
 
         if (flowers < 5) {
-            System.out.printf("The bee couldn't pollinate the flowers, she needed %d flowers more", 5 - flowers);
+            System.out.printf("The bee couldn't pollinate the flowers, she needed %d flowers more%n", 5 - flowers);
         } else {
-            System.out.printf("Great job, the bee manage to pollinate %d flowers!", flowers);
+            System.out.printf("Great job, the bee manage to pollinate %d flowers!%n", flowers);
         }
         printMatrix(territory);
 
