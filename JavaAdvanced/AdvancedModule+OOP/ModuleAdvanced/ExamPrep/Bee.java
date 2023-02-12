@@ -3,8 +3,9 @@ package ModuleAdvanced.ExamPrep;
 import java.util.Scanner;
 
 public class Bee {
-    static int beeRow;
-    static int beeCol;
+   private static int beeRow;
+    private static int beeCol;
+    private static int flowers;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -35,13 +36,28 @@ public class Bee {
             } else if (command.equals("up") && beeRow != 0) {
                 beeRow--;
             } else {
+                territory[beeRow][beeCol] = '.';
                 System.out.println("The bee is lost");
+                break;
             }
+
+            if (territory[beeRow][beeCol] == 'f') {
+                flowers++;
+            } else if (territory[beeRow][beeCol] == 'O') {
+                continue;
+            }
+
             //after the move -> 'B'
             territory[beeRow][beeCol] = 'B';
             command = scanner.nextLine();
         }
 
+        if (flowers < 5) {
+            System.out.printf("The bee couldn't pollinate the flowers, she needed %d flowers more", 5 - flowers);
+        } else {
+            System.out.printf("Great job, the bee manage to pollinate %d flowers!", flowers);
+        }
+        printMatrix(territory);
 
     }
 
