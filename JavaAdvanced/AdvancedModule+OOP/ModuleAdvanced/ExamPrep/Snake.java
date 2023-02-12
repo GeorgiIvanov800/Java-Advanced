@@ -22,7 +22,7 @@ public class Snake {
         findLairs(field, lairCoordinates);
 
         String command = scanner.nextLine();
-        while (isSnakeWithinLimits && foodEaten < 10) {
+        while (isSnakeWithinLimits && (foodEaten < 10)) {
 
             switch (command) {
                 case "up":
