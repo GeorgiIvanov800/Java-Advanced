@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Bee {
     static int beeRow;
     static int beeCol;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int size = Integer.parseInt(scanner.nextLine());
@@ -23,21 +24,24 @@ public class Bee {
         String command = scanner.nextLine();
 
         while (!command.equals("End")) {
-
-
-
+            //before the move -> .
+            territory[beeRow][beeCol] = '.';
+            if (command.equals("right")) {
+                beeCol++;
+            } else if (command.equals("left")) {
+                beeCol--;
+            } else if (command.equals("down")) {
+                beeRow++;
+            } else if (command.equals("up")) {
+                beeRow--;
+            }
+            //after the move -> 'B'
+            territory[beeRow][beeCol] = 'B';
             command = scanner.nextLine();
         }
 
 
     }
-
-
-
-
-
-
-
 
 
     private static void printMatrix(char[][] matrix) {
