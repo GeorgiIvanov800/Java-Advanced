@@ -17,6 +17,22 @@ public class lootBox {
                 .map(Integer::parseInt)
                 .forEach(ele -> secondBoxStack.push(ele));
 
+        while (!firstBoxQueue.isEmpty() && !secondBoxStack.isEmpty()) {
+            int firstBoxItem = firstBoxQueue.peek();
+            int secondBoxItem = secondBoxStack.peek();
+
+            int sum = firstBoxItem + secondBoxItem;
+
+            if (sum % 2 == 0) {
+                firstBoxQueue.poll();
+                secondBoxStack.pop();
+                loot.add(sum);
+            } else {
+                secondBoxStack.pop();
+                firstBoxQueue.offer(secondBoxItem);
+            }
+        }
+
         System.out.println();
     }
 }
