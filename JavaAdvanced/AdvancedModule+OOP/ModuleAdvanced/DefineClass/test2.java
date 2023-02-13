@@ -33,10 +33,8 @@ public class test2 {
 
     private static void fillList(List<String> outputText, Map<String, Integer> pattern) {
         for (var entry : pattern.entrySet()) {
-
             String symbol = entry.getKey();
             int count = entry.getValue();
-
             if (count >= 4) {
                 outputText.add("$");
                 outputText.add(String.valueOf(count));
@@ -48,5 +46,4 @@ public class test2 {
             }
         }
     }
-
 }
