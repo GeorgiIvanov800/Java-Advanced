@@ -12,9 +12,7 @@ public class test2 {
         String input = scanner.nextLine();
         List<Character> inputText = input.chars().mapToObj(e -> (char) e).collect(Collectors.toList());
 
-
         for (char currentSymbol : inputText) {
-
             String symbol = String.valueOf(currentSymbol);
 
             if (!pattern.containsKey(symbol)) {
@@ -24,9 +22,9 @@ public class test2 {
             }
         }
 
-
+        pattern.entrySet().stream().forEach(ele -> System.out.println(ele.getKey() + " -> " + ele.getValue()));
+        System.out.println("<------------->");
         fillList(outputText, pattern);
-
         outputText.stream().forEach(e -> System.out.print(e));
         System.out.println();
 
