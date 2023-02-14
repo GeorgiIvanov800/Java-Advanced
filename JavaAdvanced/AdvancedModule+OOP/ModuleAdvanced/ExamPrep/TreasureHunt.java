@@ -3,6 +3,10 @@ package ModuleAdvanced.ExamPrep;
 import java.util.Scanner;
 
 public class TreasureHunt {
+
+    private static int playerRow;
+    private static int playerColl;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[] fieldSize = scanner.nextLine().split(" ");
@@ -12,8 +16,13 @@ public class TreasureHunt {
         char[][] field = new char[n][m];
 
         for (int row = 0; row < field.length; row++) {
-            field[row] = scanner.nextLine().toCharArray();
+            String input = scanner.nextLine().replaceAll(" ","");
+            field[row] = input.toCharArray();
+            if (input.contains("Y")) {
+                playerRow = row;
+                playerColl = input.indexOf("Y");
+            }
         }
-        
+        System.out.println();
     }
 }
