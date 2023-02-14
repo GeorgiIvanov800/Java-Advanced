@@ -14,6 +14,6 @@ public class TreasureHunt {
         for (int row = 0; row < field.length; row++) {
             field[row] = scanner.nextLine().toCharArray();
         }
-        System.out.println();
+        
     }
 }
