@@ -5,11 +5,14 @@ import java.util.Scanner;
 public class TreasureHunt {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = Integer.parseInt(scanner.nextLine());
-        int m = Integer.parseInt(scanner.nextLine());
+        String[] fieldSize = scanner.nextLine().split(" ");
+        
 
         char[][] field = new char[n][m];
 
-        
+        for (int row = 0; row < field.length; row++) {
+            field[row] = scanner.nextLine().toCharArray();
+        }
+        System.out.println();
     }
 }
